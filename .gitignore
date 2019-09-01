@@ -293,12 +293,11 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
-
-# Custom add to ignore
-project/
-
-
 # Windows shortcuts
 *.lnk
 
 # End of https://www.gitignore.io/api/sbt,java,scala,linux,macos,windows,intellij,intellij+all,intellij+iml
+
+# Custom add to ignore
+project/
+.idea/
