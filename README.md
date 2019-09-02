@@ -14,6 +14,6 @@ val args = Array(
 
 val smartargs = SmartArgs(args)
 val name = smartargs.getAs[String]("name")
-val name = smartargs.getAs[Int]("age")
-val name = smartargs.getAs[Boolean]("play-bass")
+val age = smartargs.getAs[Int]("age")
+val canPlayBass = smartargs.getAs[Boolean]("play-bass")
 ```
