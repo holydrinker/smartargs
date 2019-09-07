@@ -3,7 +3,7 @@
 A simple scala library to parse your command line arguments.
 
 ## Accepted argument format
-"--name peppo --age 26 --play-bass true"
+```--name peppo --age 26 --play-bass true```
 
 ## Usage 
 ```scala
