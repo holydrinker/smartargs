@@ -1,4 +1,4 @@
-package holydrinker.smartargs
+package holydrinker.smartargs.core
 
 import holydrinker.smartargs.converters.SmartConverter
 

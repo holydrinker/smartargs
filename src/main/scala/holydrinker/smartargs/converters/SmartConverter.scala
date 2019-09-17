@@ -26,8 +26,17 @@ object SmartConverters {
   }
 
   implicit val stringToBoolean = new SmartConverter[Boolean] {
+    val trueValues = Set("true", "yes", "1")
+    val falseValues = Set("false", "no", "0")
+
     override def convert(arg: String): Boolean = {
-      arg.toBoolean
+      val lowerArg = arg.toLowerCase
+      if (trueValues.contains(lowerArg))
+        true
+      else if (falseValues.contains(lowerArg))
+        false
+      else
+        throw new Exception("Cannot convert " + arg + "to Boolean.")
     }
   }
 
@@ -37,7 +46,7 @@ object SmartConverters {
     }
   }
 
-  implicit val strintToFloat = new SmartConverter[Float] {
+  implicit val stringToFloat = new SmartConverter[Float] {
     override def convert(arg: String): Float = {
       arg.toFloat
     }
