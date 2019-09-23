@@ -2,11 +2,25 @@ package holydrinker.smartargs.core
 
 import holydrinker.smartargs.converters.SmartConverter
 
-case class SmartArgs (map: Map[String, String]) {
+/**
+ * A SmartArgs object is a wrapper for a dictionary that contains a key -> value binding from
+ * arguments names to arguments values
+ *
+ * @param map key - value dictionary
+ */
+final case class SmartArgs (map: Map[String, String]) {
 
-  def getAs[T](name: String)(implicit converter: SmartConverter[T]): T = {
+  /**
+   * The methods returns the argument value bound to the argument name passed in input.
+   * The method requires that an evidence of a SmartConverter exists.
+   *
+   * @param name argument name to which retrieve the argument value
+   * @tparam T the type of the returned argument value
+   * @return the argument value
+   */
+  def getAs[T : SmartConverter](name: String): T = {
     val item = map(name)
-    converter.convert(item)
+    implicitly[SmartConverter[T]].convert(item)
   }
 
 }
