@@ -1,30 +1,5 @@
-# smartarg
+package holydrinker.smartargs.examples
 
-A simple scala library to parse your command line arguments.
-
-## Accepted argument format
-```--name peppo --age 26 --play-bass true```
-
-## Why smartargs?
-- smartargs usage adoption is super fast and light, you just need to follow the accepted argument format.
-
-- you can map your command line arguments directly into domain object, just write your own converter for your own business class
-
-## Usage
-#### Simple Usage 
-```scala
-import holydrinker.smartargs.core.SmartArgs
-import holydrinker.smartargs.converters.SmartConverters._
-
-def main(args: Array[String]){
-  val smartargs = SmartArgs(args)
-  val name = smartargs.getAs[String]("name")
-  val age = smartargs.getAs[Int]("age")
-  val canPlayBass = smartargs.getAs[Boolean]("play-bass")
-}
-```
-#### Custom Usage
-```
 import holydrinker.smartargs.converters.SmartConverter
 import holydrinker.smartargs.core.SmartArgs
 
@@ -60,4 +35,3 @@ object BusinessObjectConverterUsage {
     println(s"Name: ${person.name} Age: ${person.age} CanPlayBass: ${person.canPlayBass}")
   }
 }
-```
