@@ -24,7 +24,7 @@ def main(args: Array[String]){
 }
 ```
 #### Custom Usage
-```
+```scala
 import holydrinker.smartargs.converters.SmartConverter
 import holydrinker.smartargs.core.SmartArgs
 
