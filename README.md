@@ -14,7 +14,7 @@ A simple scala library to parse your command line arguments.
 #### Simple Usage 
 ```scala
 import holydrinker.smartargs.core.SmartArgs
-import holydrinker.smartargs.converters.SmartConverters._
+import holydrinker.smartargs.converters.BasicConverter._
 
 def main(args: Array[String]){
   val smartargs = SmartArgs(args)

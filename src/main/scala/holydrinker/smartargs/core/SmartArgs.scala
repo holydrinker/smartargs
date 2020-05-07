@@ -1,6 +1,6 @@
 package holydrinker.smartargs.core
 
-import holydrinker.smartargs.converters.SmartConverter
+import holydrinker.smartargs.converters._
 
 /**
  * A SmartArgs object is a wrapper for a dictionary that contains a key -> value binding from

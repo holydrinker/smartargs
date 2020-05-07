@@ -3,10 +3,10 @@ package holydrinker.smartargs.converters
 import org.scalatest.FunSuite
 import scala.util.Try
 
-class SmartConverterSuite extends FunSuite {
+class BasicConverterSuite extends FunSuite {
 
   test ("identity conversion") {
-    val converter = SmartConverters.stringIdentity
+    val converter = BasicConverter.stringIdentity
     val data = Seq(
       "hello" -> "hello",
       "LOL" -> "LOL"
@@ -17,7 +17,7 @@ class SmartConverterSuite extends FunSuite {
   }
 
   test ("integer conversion") {
-    val converter = SmartConverters.stringToInt
+    val converter = BasicConverter.stringToInt
     val data = Seq(
       "1" -> Some(1),
       "-1" -> Some(-1),
@@ -31,7 +31,7 @@ class SmartConverterSuite extends FunSuite {
   }
 
   test ("long conversion") {
-    val converter = SmartConverters.stringToLong
+    val converter = BasicConverter.stringToLong
     val data = Seq(
       "10000000" -> Some(10000000L),
       "-10000000" -> Some(-10000000L),
@@ -44,7 +44,7 @@ class SmartConverterSuite extends FunSuite {
   }
 
   test ("double conversion") {
-    val converter = SmartConverters.stringToDouble
+    val converter = BasicConverter.stringToDouble
     val data = Seq(
       "123.456" -> Some(123.456D),
       "-123.456" -> Some(-123.456D),
@@ -57,7 +57,7 @@ class SmartConverterSuite extends FunSuite {
   }
 
   test ("float conversion") {
-    val converter = SmartConverters.stringToFloat
+    val converter = BasicConverter.stringToFloat
     val data = Seq(
       "123.456" -> Some(123.456F),
       "-123.456" -> Some(-123.456F),
@@ -70,7 +70,7 @@ class SmartConverterSuite extends FunSuite {
   }
 
   test ("boolean conversion") {
-    val converter = SmartConverters.stringToBoolean
+    val converter = BasicConverter.stringToBoolean
     val data = Seq(
       "true" -> Some(true),
       "TRUE" -> Some(true),
