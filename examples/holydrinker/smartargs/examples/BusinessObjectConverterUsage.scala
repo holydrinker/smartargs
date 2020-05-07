@@ -28,9 +28,9 @@ object PersonConverter {
 object BusinessObjectConverterUsage {
   import PersonConverter._
 
-  // --person peppo_27_true
   def main(args: Array[String]): Unit = {
-    val smartargs = SmartArgs(args)
+    val realArgs = Array("--person", "peppo_27_true")
+    val smartargs = SmartArgs(realArgs)
     val person = smartargs.getAs[Person]("person")
     println(s"Name: ${person.name} Age: ${person.age} CanPlayBass: ${person.canPlayBass}")
   }

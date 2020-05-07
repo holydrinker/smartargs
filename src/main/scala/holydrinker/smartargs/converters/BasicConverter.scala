@@ -1,28 +1,26 @@
 package holydrinker.smartargs.converters
 
 
-trait BasicConverter[T] extends SmartConverter[T]
+trait BasicConverters {
 
-object BasicConverter {
-
-  implicit val stringIdentity = new BasicConverter[String] {
+  implicit val stringIdentity = new SmartConverter[String] {
     override def convert(arg: String): String =
       arg
   }
 
-  implicit val stringToInt = new BasicConverter[Int] {
+  implicit val stringToInt = new SmartConverter[Int] {
     override def convert(arg: String): Int = {
       arg.toInt
     }
   }
 
-  implicit val stringToLong = new BasicConverter[Long] {
+  implicit val stringToLong = new SmartConverter[Long] {
     override def convert(arg: String): Long = {
       arg.toLong
     }
   }
 
-  implicit val stringToBoolean = new BasicConverter[Boolean] {
+  implicit val stringToBoolean = new SmartConverter[Boolean] {
     val trueValues = Set("true", "yes", "1")
     val falseValues = Set("false", "no", "0")
 
@@ -37,13 +35,13 @@ object BasicConverter {
     }
   }
 
-  implicit val stringToDouble = new BasicConverter[Double] {
+  implicit val stringToDouble = new SmartConverter[Double] {
     override def convert(arg: String): Double = {
       arg.toDouble
     }
   }
 
-  implicit val stringToFloat = new BasicConverter[Float] {
+  implicit val stringToFloat = new SmartConverter[Float] {
     override def convert(arg: String): Float = {
       arg.toFloat
     }

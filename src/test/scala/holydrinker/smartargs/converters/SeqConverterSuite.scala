@@ -2,10 +2,8 @@ package holydrinker.smartargs.converters
 
 import org.scalatest.FunSuite
 import holydrinker.smartargs.core.SmartArgs
-import BasicConverter._
-import SeqConverter._
 
-class SeqConverterSuite extends FunSuite {
+class SeqConverterSuite extends FunSuite with SeqConverters {
 
   test ("convert a list of string with comma as sep") {
     val args = Array("--artist", "dave,simon")

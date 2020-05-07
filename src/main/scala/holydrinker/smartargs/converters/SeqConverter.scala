@@ -1,5 +1,4 @@
 package holydrinker.smartargs.converters
-import BasicConverter._
 
 private[converters] class SeqConverter[T : SmartConverter] extends SmartConverter[Seq[T]] {
   override def convert(arg: String): Seq[T] = {
@@ -8,7 +7,7 @@ private[converters] class SeqConverter[T : SmartConverter] extends SmartConverte
   }
 }
 
-object SeqConverter {
+trait SeqConverters extends BasicConverters {
 
   implicit val stringSeqConverter = new SeqConverter[String]
 
