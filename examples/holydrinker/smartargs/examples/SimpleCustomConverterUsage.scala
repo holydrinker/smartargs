@@ -20,7 +20,10 @@ object SimpleCustomConverters {
   }
 
   implicit val canPlayBassConverter = new SmartConverter[CanPlayBass] {
-    override def convert(arg: String): CanPlayBass = CanPlayBass(arg.toBoolean)
+    override def convert(arg: String): CanPlayBass = arg match {
+      case "1" =>CanPlayBass(true)
+      case _   => CanPlayBass(false)
+    }
   }
 }
 
@@ -30,12 +33,12 @@ object SimpleCustomConvertersUsage {
   import SimpleCustomConverters._
 
   def main(args: Array[String]): Unit = {
-    val manualArgs = Array(
+    val realArgs = Array(
       "--name", "peppo",
       "--age", "27",
       "--play-bass", "1")
 
-    val smartargs = SmartArgs(manualArgs)
+    val smartargs = SmartArgs(realArgs)
     val name = smartargs.getAs[Name]("name")
     val age = smartargs.getAs[Age]("age")
     val canPlayBass = smartargs.getAs[CanPlayBass]("play-bass")

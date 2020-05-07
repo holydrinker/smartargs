@@ -1,0 +1,5 @@
+package holydrinker.smartargs.converters
+
+trait DefaultConverters extends SeqConverters
+
+object DefaultConverters extends DefaultConverters

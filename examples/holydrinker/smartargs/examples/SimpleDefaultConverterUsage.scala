@@ -1,7 +1,7 @@
 package holydrinker.smartargs.examples
 
 import holydrinker.smartargs.core.SmartArgs
-import holydrinker.smartargs.converters.SmartConverters._
+import holydrinker.smartargs.converters.DefaultConverters._
 
 object SimpleDefaultConverterUsage {
 

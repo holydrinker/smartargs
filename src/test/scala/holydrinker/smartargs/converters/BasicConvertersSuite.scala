@@ -3,21 +3,19 @@ package holydrinker.smartargs.converters
 import org.scalatest.FunSuite
 import scala.util.Try
 
-class SmartConverterSuite extends FunSuite {
+class BasicConvertersSuite extends FunSuite with BasicConverters {
 
   test ("identity conversion") {
-    val converter = SmartConverters.stringIdentity
     val data = Seq(
       "hello" -> "hello",
       "LOL" -> "LOL"
     )
 
-    val result = data map (x => x._1 == converter.convert(x._2))
+    val result = data map (x => x._1 == stringIdentity.convert(x._2))
     assert(result.forall(_ == true))
   }
 
   test ("integer conversion") {
-    val converter = SmartConverters.stringToInt
     val data = Seq(
       "1" -> Some(1),
       "-1" -> Some(-1),
@@ -26,12 +24,11 @@ class SmartConverterSuite extends FunSuite {
       "true" -> None
     )
 
-    val result = data map (x => x._2 == Try(converter.convert(x._1)).toOption)
+    val result = data map (x => x._2 == Try(stringToInt.convert(x._1)).toOption)
     assert(result.forall(_ == true))
   }
 
   test ("long conversion") {
-    val converter = SmartConverters.stringToLong
     val data = Seq(
       "10000000" -> Some(10000000L),
       "-10000000" -> Some(-10000000L),
@@ -39,12 +36,11 @@ class SmartConverterSuite extends FunSuite {
       "true" -> None
     )
 
-    val result = data map (x => x._2 == Try(converter.convert(x._1)).toOption)
+    val result = data map (x => x._2 == Try(stringToLong.convert(x._1)).toOption)
     assert(result.forall(_ == true))
   }
 
   test ("double conversion") {
-    val converter = SmartConverters.stringToDouble
     val data = Seq(
       "123.456" -> Some(123.456D),
       "-123.456" -> Some(-123.456D),
@@ -52,12 +48,11 @@ class SmartConverterSuite extends FunSuite {
       "true" -> None
     )
 
-    val result = data map (x => x._2 == Try(converter.convert(x._1)).toOption)
+    val result = data map (x => x._2 == Try(stringToDouble.convert(x._1)).toOption)
     assert(result.forall(_ == true))
   }
 
   test ("float conversion") {
-    val converter = SmartConverters.stringToFloat
     val data = Seq(
       "123.456" -> Some(123.456F),
       "-123.456" -> Some(-123.456F),
@@ -65,12 +60,11 @@ class SmartConverterSuite extends FunSuite {
       "true" -> None
     )
 
-    val result = data map (x => x._2 == Try(converter.convert(x._1)).toOption)
+    val result = data map (x => x._2 == Try(stringToFloat.convert(x._1)).toOption)
     assert(result.forall(_ == true))
   }
 
   test ("boolean conversion") {
-    val converter = SmartConverters.stringToBoolean
     val data = Seq(
       "true" -> Some(true),
       "TRUE" -> Some(true),
@@ -91,7 +85,7 @@ class SmartConverterSuite extends FunSuite {
       "3" -> None
     )
 
-    val result = data map (x => x._2 == Try(converter.convert(x._1)).toOption)
+    val result = data map (x => x._2 == Try(stringToBoolean.convert(x._1)).toOption)
     assert(result.forall(_ == true))
   }
 }
